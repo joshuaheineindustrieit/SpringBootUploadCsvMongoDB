@@ -1,0 +1,20 @@
+version: '3'
+services:
+  mongo:
+    container_name: docker-mongo
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/db:/data/db
+    hostname: mongo
+
+  spring:
+    depends_on:
+      - mongo
+    image:f56c5ea6bd49
+    ports:
+      - "8080:8080"
+    hostname: spring
+    links:
+      - mongo
