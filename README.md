@@ -1,10 +1,9 @@
 # SpringBootUploadCsvMongoDB
- • The user needs to have Postman in order to submit files to the mongoDB.
-	
- • You can submit a single file with the POST command: http://localhost:8080/api/upload/csv/single 
-	
- • Then add go to key and add csvfile and value with the CSV file.
 
- • You must create a database for employees at the port 27017. 
-	
- • With the way the docker file is composed it will be able to connect 8080 to 27017.
+
+How to run:
+1) First run command docker run -p 8080:8080 docker-spring-boot.jar on one terminal
+2) Then run command docker run -d -p 27017:27017 mongo:latest --name mongo-db on another terminal
+3) Prepare a CSV file that will be submited into Postman with the command POST http://localhost:8080/api/upload/csv/single
+4) Put the key as "csvfile" and the value must be a csv file
+5) The mongodb should have a database called employees and it will be uploaded there
